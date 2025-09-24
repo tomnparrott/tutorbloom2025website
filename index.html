@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TutorBloom - Expert Tutoring from Pre-School to University</title>
-    <meta name="description" content="TutorBloom offers personalized online tutoring from pre-school to university. Book your free trial lesson in subjects like Math, English, and Science today!">
+    <meta name="description" content="TutorBloom offers personalized online tutoring from pre-school to university. Book your trial lesson in subjects like Math, English, and Science today!">
     <meta name="keywords" content="tutoring, online tutoring, math tutoring, English tutoring, science tutoring, private tutor, academic help, exam preparation, GCSE, A-Level, university, UK">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- TrustBox script -->
@@ -207,10 +207,10 @@
 
         /* Hero Section */
         .hero {
-            min-height: 80vh; 
+            min-height: 100vh; 
             display: flex;
             align-items: center;
-            padding: 140px 20px 80px;
+            padding: 180px 20px 100px;
             position: relative;
             z-index: 10;
         }
@@ -245,15 +245,34 @@
             transform: scale(1.1);
         }
 
+        .hero-image-bg {
+            display: none; /* Hidden by default, enabled by JS/CSS */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('tutoring3.png');
+            background-size: cover;
+            background-position: center center;
+            z-index: 0;
+        }
+
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.7fr 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: stretch;
             position: relative;
             z-index: 2;
+        }
+
+        .hero-content > .glass-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* Enhanced Glass Cards with iOS 26 style distortion */
@@ -435,9 +454,6 @@
         }
 
         .subject-card {
-            background: var(--glass);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
             border-radius: 24px;
             padding: 30px;
             border: 1px solid var(--glass-border);
@@ -448,21 +464,46 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            justify-content: flex-end; /* Align content to the bottom */
+            min-height: 250px; /* Give cards a consistent height */
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(23, 69, 112, 0.4), rgba(23, 69, 112, 0.4)), linear-gradient(transparent 40%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+
+        .subject-card:hover::before {
+            background: linear-gradient(rgba(23, 69, 112, 0.6), rgba(23, 69, 112, 0.6)), linear-gradient(transparent 30%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .subject-card > * {
+            position: relative;
+            z-index: 2;
         }
         
         .subject-card:hover {
             transform: translateY(-10px) scale(1.02);
-            background: var(--glass-heavy);
             box-shadow: var(--shadow-lg);
         }
 
         .subject-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            display: none; /* Hide the old emoji icon */
         }
         
         .subject-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -471,6 +512,11 @@
             font-size: 0.9rem;
             opacity: 0.8;
             line-height: 1.5;
+            display: none; /* Hide paragraph by default */
+        }
+
+        .subject-card:hover p {
+            display: block; /* Show paragraph on hover */
         }
 
         /* About Section */
@@ -768,23 +814,19 @@
         /* Quick Links Section */
         .quick-links-section {
             padding: 80px 20px;
-            background: var(--glass-light);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border-top: 1px solid var(--glass-border);
         }
         
         .quick-links-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        .quick-links-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--text-white);
-            font-weight: 700;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
         }
 
         .quick-links-grid {
@@ -821,8 +863,21 @@
         }
 
         .quick-links-grid a .icon {
-            font-size: 3rem;
             margin-bottom: 10px;
+            height: 48px;
+            width: 48px;
+        }
+
+        .quick-links-grid a .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .quick-links-grid a span {
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
         @media (max-width: 900px) {
@@ -1023,6 +1078,33 @@
                 background: linear-gradient(125deg, #7451a8 0%, #a780e8 50%, #6878e8 100%);
             }
         }
+        
+        @media (prefers-reduced-motion: reduce) {
+            /* Disable video and show fallback image */
+            .hero-video-bg {
+                display: none;
+            }
+            .hero-image-bg {
+                display: block;
+            }
+
+            /* Turn off animations */
+            .orb, .petal, .equation, .lotus-center, .wave-line, .fade-in {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            /* Ensure fade-in elements are visible without animation */
+            .fade-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Stop the shimmer effect */
+            .glass-card::after {
+                display: none;
+            }
+        }
 
         /* TutorBloom Themed Divider */
         .tutorbloom-divider {
@@ -1062,17 +1144,16 @@
 
         .petal {
             fill: rgba(191, 90, 242, 0.6);
-            stroke: rgba(255, 255, 255, 0.3);
-            stroke-width: 0.5;
-            transform-origin: 100px 80px;
+            stroke: rgba(191, 90, 242, 0.6);
+            stroke-width: 15;
+            transform-origin: 50px 80px;
             animation: lotus-bloom 4s ease-in-out infinite;
         }
 
         .petal-1 { animation-delay: 0s; }
-        .petal-2 { animation-delay: 0.2s; }
-        .petal-3 { animation-delay: 0.4s; }
-        .petal-4 { animation-delay: 0.6s; }
-        .petal-5 { animation-delay: 0.8s; }
+        .petal-2, .petal-3 { animation-delay: 0.1s; }
+        .petal-4, .petal-5 { animation-delay: 0.2s; }
+        .petal-6, .petal-7 { animation-delay: 0.3s; }
 
         @keyframes lotus-bloom {
             0%, 100% { 
@@ -1293,15 +1374,14 @@
     <section class="hero" id="home">
         <!-- Video as Hero Background -->
         <div class="hero-video-bg">
-            <video autoplay loop muted playsinline>
+            <video autoplay loop muted playsinline preload="metadata">
                 <source src="tutoring3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+        <!-- Static image fallback -->
+        <div class="hero-image-bg"></div>
         
-        <!-- Blue overlay on top of the video -->
-        <div class="hero-overlay"></div>
-
         <div class="hero-content">
             <div class="hero-text glass-card fade-in">
                 <h1>Where Academic Success <span>Blossoms</span></h1>
@@ -1317,8 +1397,11 @@
             </div>
             <div class="hero-newsletter glass-card fade-in">
                 <!-- maybe add a cdnralised logo here? also, text colour needs changing here too -->
-                <h2 style="font-size: 1.8rem; margin-bottom: 20px; text-align: center;">Get TutorBloom Updates</h2>
-                <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 25px; text-align: center;">Join our mailing list for the latest learning tips, new subject announcements, and exclusive offers!</p>
+                <div style="display: flex; justify-content: center; margin-bottom: 5px;">
+                    <img src="tblogo.png" alt="TutorBloom logo" style="height:110px;">
+                </div>
+                <h2 style="font-size: 1.8rem; color: rgba(255, 255, 255, 0.8);margin-bottom: 20px; text-align: center;">Get TutorBloom Updates</h2>
+                <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 25px; text-align: center;">Join our mailing list for the latest learning tips, announcements, and exclusive offers!</p>
                 <!-- Placeholder for hubspot form -->
                 <form action="#" method="post" style="display: flex; flex-direction: column; gap: 15px;">
                     <input type="email" name="email" placeholder="Enter your email address" required style="padding: 12px 20px; border-radius: 50px; border: 1px solid var(--glass-border); background: var(--glass-light); color: var(--text-white); font-size: 1rem;">
@@ -1334,11 +1417,17 @@
         <div class="lotus-container">
             <svg class="lotus-bloom" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
                 <g class="lotus-petals">
-                    <path class="petal petal-1" d="M100,80 Q70,40 100,20 Q130,40 100,80 Z" />
-                    <path class="petal petal-2" d="M100,80 Q60,50 85,25 Q115,45 100,80 Z" />
-                    <path class="petal petal-3" d="M100,80 Q140,50 115,25 Q85,45 100,80 Z" />
-                    <path class="petal petal-4" d="M100,80 Q75,45 95,30 Q115,50 100,80 Z" />
-                    <path class="petal petal-5" d="M100,80 Q125,45 105,30 Q85,50 100,80 Z" />
+                    <!-- Outer Pair -->
+                    <path class="petal petal-6" d="M100,80 Q20,65 40,60 Q65,75 100,80 Z" />
+                    <path class="petal petal-7" d="M100,80 Q180,65 160,60 Q135,75 100,80 Z" />
+                    <!-- Middle Pair -->
+                    <path class="petal petal-4" d="M100,80 Q40,50 55,40 Q75,60 100,80 Z" />
+                    <path class="petal petal-5" d="M100,80 Q160,50 145,40 Q125,60 100,80 Z" />
+                    <!-- Inner Pair -->
+                    <path class="petal petal-2" d="M100,80 Q60,35 75,25 Q90,45 100,80 Z" />
+                    <path class="petal petal-3" d="M100,80 Q140,35 125,25 Q110,45 100,80 Z" />
+                    <!-- Center Petal -->
+                    <path class="petal petal-1" d="M100,80 Q80,20 100,10 Q120,20 100,80 Z" />
                 </g>
                 <circle class="lotus-center" cx="100" cy="75" r="8" />
             </svg>
@@ -1356,75 +1445,6 @@
             <div class="wave-line wave-3"></div>
         </div>
     </div>
-
-    <!-- Subjects Section -->
-     <!-- This sectin needs narrowing as it should be uniform to header and hero, currently wider, looks a bit odd -->
-    <section class="subjects-section" id="subjects">
-        <h2 class="section-title fade-in">Some Subjects We Teach</h2>
-        <p class="section-subtitle fade-in">From KS3 to University Level - We offer tutoring across a wide range of subjects, these are just a selection.</p>
-        <div class="subjects-grid fade-in">
-            <div class="subject-card">
-                <div class="subject-icon">📐</div>
-                <h3>Mathematics</h3>
-                <p>From basic arithmetic to advanced calculus. GCSE, A-Level, IB & Degree level support.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">📚</div>
-                <h3>English</h3>
-                <p>Literature & Language mastery. Essay writing, comprehension, and critical analysis.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">🔬</div>
-                <h3>Sciences</h3>
-                <p>Physics, Chemistry, Biology. Practical understanding and exam technique.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">💻</div>
-                <h3>Computer Science</h3>
-                <p>Programming, algorithms, and computational thinking for the digital age.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">📊</div>
-                <h3>Economics</h3>
-                <p>Micro and macroeconomics, market dynamics, and financial literacy.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">🧠</div>
-                <h3>Psychology</h3>
-                <p>Understanding human behavior, cognitive processes, and research methods.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">🌍</div>
-                <h3>Geography</h3>
-                <p>Physical and human geography, environmental studies, and global issues.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">📜</div>
-                <h3>History</h3>
-                <p>Critical analysis of historical events, source evaluation, and essay skills.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">🇫🇷</div>
-                <h3>French</h3>
-                <p>Fluency, grammar, and cultural understanding for all levels.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">🇪🇸</div>
-                <h3>Spanish</h3>
-                <p>Grammar, vocabulary, and conversational skills for all levels.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon">💼</div>
-                <h3>Business Studies</h3>
-                <p>A deep dive into the corporate world, from entrepreneurship to marketing.</p>
-            </div>
-            <div class="subject-card">
-                <div class="subject-icon"><i class="fa-solid fa-question-circle"></i></div>
-                <h3>More Subjects?</h3>
-                <p>Don't see your subject here? Contact us to see if we have a tutor for you! We will always try our hardest to find the best tutor for you</p>
-            </div>
-        </div>
-    </section>
 
     <!-- About Section -->
     <section class="about-section" id="about">
@@ -1456,19 +1476,80 @@
                 </div>
             </div>
         </div>
+
     </section>
 
-    <!-- CTA Banner Section -->
-    <section class="cta-banner">
-        <div class="cta-content fade-in">
-            <h2>Ready to See the Difference?</h2>
-            <p>Book your trial lesson today and discover how we can help you thrive.</p>
-            <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">Book Your Trial Now →</a>
+    <!-- Subjects Section -->
+     <!-- This sectin needs narrowing as it should be uniform to header and hero, currently wider, looks a bit odd -->
+    <section class="subjects-section" id="subjects">
+        <h2 class="section-title fade-in">Some Subjects We Teach</h2>
+        <p class="section-subtitle fade-in">From KS3 to University Level - We offer tutoring across a wide range of subjects, these are just a selection.</p>
+        <div class="subjects-grid fade-in">
+            <!-- For your production site, download these images and replace the URLs with your local file paths, e.g., 'images/math.jpg' -->
+            <div class="subject-card" style="background-image: url('mathematics.png');">
+                <div class="subject-icon">📐</div>
+                <h3>Mathematics</h3>
+                <p>From basic arithmetic to advanced calculus. GCSE, A-Level, IB & Degree level support.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('english.png');">
+                <div class="subject-icon">📚</div>
+                <h3>English</h3>
+                <p>Literature & Language mastery. Essay writing, comprehension, and critical analysis.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('sciences.png');">
+                <div class="subject-icon">🔬</div>
+                <h3>Sciences</h3>
+                <p>Physics, Chemistry, Biology. Practical understanding and exam technique.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('computerscience.jpg');">
+                <div class="subject-icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>Programming, algorithms, and computational thinking for the digital age.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('economics.jpg');">
+                <div class="subject-icon">📊</div>
+                <h3>Economics</h3>
+                <p>Micro and macroeconomics, market dynamics, and financial literacy.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('Psychology.jpg');">
+                <div class="subject-icon">🧠</div>
+                <h3>Psychology</h3>
+                <p>Understanding human behavior, cognitive processes, and research methods.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('geography.jpg');">
+                <div class="subject-icon">🌍</div>
+                <h3>Geography</h3>
+                <p>Physical and human geography, environmental studies, and global issues.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('history.jpg');">
+                <div class="subject-icon">📜</div>
+                <h3>History</h3>
+                <p>Critical analysis of historical events, source evaluation, and essay skills.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('france.jpeg');">
+                <div class="subject-icon">🇫🇷</div>
+                <h3>French</h3>
+                <p>Fluency, grammar, and cultural understanding for all levels.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('spanish.png');">
+                <div class="subject-icon">🇪🇸</div>
+                <h3>Spanish</h3>
+                <p>Grammar, vocabulary, and conversational skills for all levels.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('businessstudies.jpg');">
+                <div class="subject-icon">💼</div>
+                <h3>Business Studies</h3>
+                <p>A deep dive into the corporate world, from entrepreneurship to marketing.</p>
+            </div>
+            <div class="subject-card" style="background-image: url('moresubjects.jpg');">
+                <div class="subject-icon"><i class="fa-solid fa-question-circle"></i></div>
+                <h3>More Subjects?</h3>
+                <p>Don't see your subject here? Contact us to see if we have a tutor for you! We will always try our hardest to find the best tutor for you</p>
+            </div>
         </div>
     </section>
 
         <!-- Quick Links Section -->
-    <!-- This needs to be centred better  -->
     <section class="quick-links-section" id="contact">
         <div class="quick-links-content fade-in">
             <div class="about-text fade-in">
@@ -1479,19 +1560,27 @@
             </div>
             <div class="quick-links-grid">
                 <a href="terms_and_conditions.html">
-                    <div class="icon">📜</div>
+                    <div class="icon">
+                        <img src="terms.png" alt="Terms & Conditions icon">
+                    </div>
                     <span>Terms & Conditions</span>
                 </a>
                 <a href="new_tutor_form.html">
-                    <div class="icon">🧑‍🏫</div>
+                    <div class="icon">
+                        <img src="teacher.png" alt="Become a Tutor icon">
+                    </div>
                     <span>Become a Tutor</span>
                 </a>
                 <a href="new_student_form.html">
-                    <div class="icon">🎓</div>
+                    <div class="icon">
+                        <img src="student.png" alt="Become a Student icon">
+                    </div>
                     <span>Become a Student</span>
                 </a>
                 <a href="#" class="apply-content-creator">
-                    <div class="icon">✏️</div>
+                    <div class="icon">
+                        <img src="content-creator.png" alt="Become a Creator icon">
+                    </div>
                     <span>Become a Creator</span>
                 </a>
             </div>
@@ -1583,11 +1672,24 @@
         </div>
     </section>
 
+    <!-- CTA Banner Section -->
+    <section class="cta-banner">
+        <div class="cta-content fade-in">
+            <h2>Ready to See the Difference?</h2>
+            <p>Book your trial lesson today and discover how we can help you thrive.</p>
+            <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">Book Your Trial Now →</a>
+        </div>
+    </section>
+
+
+
+
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="contact-content">
             <h2>Start Your Learning Journey Today</h2>
-            <p>Join hundreds of successful students who have transformed their academic performance with TutorBloom. Your first trial lesson is completely free.</p>
+            <p>Join hundreds of successful students who have transformed their academic performance with TutorBloom.</p>
             <div class="contact-buttons">
                 <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">Book Trial Lesson</a>
                 <a href="signup.html" class="btn btn-secondary">Enquire Now</a>
@@ -1678,7 +1780,7 @@
                     <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                 </div>
                 <div class="accordion-content">
-                    <p>We are always looking for talented freelance content creators to join our team. Opportunities include managing social media posts, writing blog posts, and creating educational materials. This is a great way to gain experience and build your portfolio while working with a supportive team. This is also a role where you can earn commission, based on your contributions, not only boosting your income but also enhancing your professional growth.</p>
+                    <p>We are always looking for talented freelance content creators to join our team. Opportunities include managing social media posts, writing blog posts, and creating educational materials. This is a great way to gain experience and build your portfolio while working with a supportive team. This is also a role where you can earn commission, based on your contributions, not only boosting your income, but also enhancing your professional growth.</p>
                 </div>
             </div>
         </div>
@@ -1726,308 +1828,275 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const menu = document.querySelector('nav ul');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            menu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- FUNCTION DEFINITIONS ---
 
-        // Close menu when clicking a link
-        document.querySelectorAll('nav ul a').forEach(link => {
-            link.addEventListener('click', () => {
+            // Mobile menu toggle
+            function toggleMenu() {
                 const menu = document.querySelector('nav ul');
                 const mobileMenu = document.querySelector('.mobile-menu');
-                menu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
+                menu.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            }
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Performance and Accessibility Optimization for Hero Section
+            function optimizeHeroExperience() {
+                // Heuristic for lower-power devices (e.g., limited CPU cores)
+                const isLowPower = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
+                if (isLowPower) {
+                    const videoBg = document.querySelector('.hero-video-bg');
+                    const imageBg = document.querySelector('.hero-image-bg');
+                    const video = videoBg ? videoBg.querySelector('video') : null;
+
+                    if (video) {
+                        video.pause();
+                        video.src = ""; // Detach source to stop download
+                    }
+                    if (videoBg) videoBg.style.display = 'none';
+                    if (imageBg) imageBg.style.display = 'block';
                 }
-            });
-        });
+            }
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enhanced parallax effect on scroll with video distortion
-        let ticking = false;
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            const orbs = document.querySelectorAll('.orb');
-            
-            orbs.forEach((orb, index) => {
-                const speed = 0.5 + (index * 0.2);
-                orb.style.transform = `translateY(${scrolled * speed * 0.5}px)`;
-            });
-
-            // Add scroll-based video distortion effect for iOS 26 style
-            const video = document.querySelector('.hero-video-bg video');
-            if (video && scrolled < window.innerHeight) {
-                const distortionIntensity = Math.sin(scrolled * 0.005) * 2;
-                const blurAmount = 3 + Math.abs(distortionIntensity);
-                const saturation = 150 + distortionIntensity * 10;
-                const hueRotation = distortionIntensity * 3;
+            // TutorBloom Neural Network and Lotus Divider
+            function initTutorBloomDivider() {
+                const canvas = document.getElementById('neuralCanvas');
+                if (!canvas) return; // Exit if canvas not found
+                const ctx = canvas.getContext('2d');
+                const divider = document.getElementById('tutorbloomDivider');
                 
-                video.style.filter = `blur(${blurAmount}px) saturate(${saturation}%) contrast(120%) brightness(105%) hue-rotate(${hueRotation}deg)`;
-            }
-            
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        });
-
-        // Testimonials Carousel
-        const carouselWrapper = document.querySelector('.carousel-wrapper');
-        const testimonialCards = document.querySelectorAll('.testimonial-card');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        const cardWidth = 350 + 20; // card width + gap
-        let scrollPosition = 0;
-
-        // Intersection Observer to set the 'active' class on the centered card
-        const intersectionOptions = {
-            root: carouselWrapper,
-            rootMargin: '0px',
-            threshold: 0.8 // A card is 'active' when 80% of it is visible
-        };
-
-        const observerCarousel = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                } else {
-                    entry.target.classList.remove('active');
-                }
-            });
-        }, intersectionOptions);
-
-        testimonialCards.forEach(card => {
-            observerCarousel.observe(card);
-        });
-
-        prevBtn.addEventListener('click', () => {
-            scrollPosition -= cardWidth;
-            if (scrollPosition < 0) {
-                scrollPosition = 0;
-            }
-            carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            scrollPosition += cardWidth;
-            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.offsetWidth;
-            if (scrollPosition > maxScroll) {
-                scrollPosition = maxScroll;
-            }
-            carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-        });
-        
-        // TutorBloom Neural Network and Lotus Divider
-        function initTutorBloomDivider() {
-            const canvas = document.getElementById('neuralCanvas');
-            const ctx = canvas.getContext('2d');
-            const divider = document.getElementById('tutorbloomDivider');
-            
-            // Set canvas size
-            function resizeCanvas() {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            }
-            
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-            
-            // Neural network nodes (representing AI/learning connections)
-            const nodes = [];
-            const nodeCount = 25;
-            const connections = [];
-            
-            class Node {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.vx = (Math.random() - 0.5) * 0.3;
-                    this.vy = (Math.random() - 0.5) * 0.3;
-                    this.pulse = Math.random() * Math.PI * 2;
-                    this.baseRadius = 1.5;
+                function resizeCanvas() {
+                    canvas.width = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
                 }
                 
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.pulse += 0.02;
-                    
-                    // Keep nodes within bounds
-                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                    
-                    this.x = Math.max(0, Math.min(canvas.width, this.x));
-                    this.y = Math.max(0, Math.min(canvas.height, this.y));
-                }
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
                 
-                draw() {
-                    const radius = this.baseRadius + Math.sin(this.pulse) * 0.5;
-                    const opacity = 0.4 + Math.sin(this.pulse) * 0.2;
-                    
-                    ctx.save();
-                    ctx.globalAlpha = opacity;
-                    
-                    // Gradient for neural nodes
-                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius * 3);
-                    gradient.addColorStop(0, '#0071e3');
-                    gradient.addColorStop(0.5, '#bf5af2');
-                    gradient.addColorStop(1, 'transparent');
-                    
-                    ctx.fillStyle = gradient;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, radius * 3, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    // Core node
-                    ctx.fillStyle = '#ffffff';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    ctx.restore();
-                }
-            }
-            
-            // Initialize neural nodes
-            for (let i = 0; i < nodeCount; i++) {
-                nodes.push(new Node());
-            }
-            
-            // Animation loop
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const nodes = [];
+                const nodeCount = 25;
                 
-                // Update and draw nodes
-                nodes.forEach(node => {
-                    node.update();
-                    node.draw();
-                });
-                
-                // Draw neural connections (knowledge transfer)
-                nodes.forEach((node, i) => {
-                    nodes.slice(i + 1).forEach(otherNode => {
-                        const distance = Math.sqrt(
-                            Math.pow(node.x - otherNode.x, 2) + 
-                            Math.pow(node.y - otherNode.y, 2)
-                        );
+                class Node {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.3;
+                        this.vy = (Math.random() - 0.5) * 0.3;
+                        this.pulse = Math.random() * Math.PI * 2;
+                        this.baseRadius = 1.5;
+                    }
+                    
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                        this.pulse += 0.02;
                         
-                        if (distance < 120) {
-                            const opacity = (120 - distance) / 120 * 0.3;
-                            const pulseSync = Math.sin(Date.now() * 0.001 + distance * 0.01);
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                        
+                        this.x = Math.max(0, Math.min(canvas.width, this.x));
+                        this.y = Math.max(0, Math.min(canvas.height, this.y));
+                    }
+                    
+                    draw() {
+                        const radius = this.baseRadius + Math.sin(this.pulse) * 0.5;
+                        const opacity = 0.4 + Math.sin(this.pulse) * 0.2;
+                        
+                        ctx.save();
+                        ctx.globalAlpha = opacity;
+                        
+                        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius * 3);
+                        gradient.addColorStop(0, '#0071e3');
+                        gradient.addColorStop(0.5, '#bf5af2');
+                        gradient.addColorStop(1, 'transparent');
+                        
+                        ctx.fillStyle = gradient;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, radius * 3, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        ctx.restore();
+                    }
+                }
+                
+                for (let i = 0; i < nodeCount; i++) {
+                    nodes.push(new Node());
+                }
+                
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    nodes.forEach(node => {
+                        node.update();
+                        node.draw();
+                    });
+                    
+                    nodes.forEach((node, i) => {
+                        nodes.slice(i + 1).forEach(otherNode => {
+                            const distance = Math.sqrt(Math.pow(node.x - otherNode.x, 2) + Math.pow(node.y - otherNode.y, 2));
                             
-                            ctx.save();
-                            ctx.globalAlpha = opacity * (0.5 + pulseSync * 0.3);
-                            
-                            // Data flow gradient
-                            const gradient = ctx.createLinearGradient(node.x, node.y, otherNode.x, otherNode.y);
-                            gradient.addColorStop(0, '#30d158');
-                            gradient.addColorStop(0.5, '#0071e3');
-                            gradient.addColorStop(1, '#bf5af2');
-                            
-                            ctx.strokeStyle = gradient;
-                            ctx.lineWidth = 1;
-                            ctx.beginPath();
-                            ctx.moveTo(node.x, node.y);
-                            ctx.lineTo(otherNode.x, otherNode.y);
-                            ctx.stroke();
-                            
-                            // Data packets flowing along connections
-                            const flowProgress = (Date.now() * 0.002 + distance * 0.05) % 1;
-                            const packetX = node.x + (otherNode.x - node.x) * flowProgress;
-                            const packetY = node.y + (otherNode.y - node.y) * flowProgress;
-                            
-                            ctx.fillStyle = '#ffffff';
-                            ctx.shadowBlur = 8;
-                            ctx.shadowColor = '#0071e3';
-                            ctx.beginPath();
-                            ctx.arc(packetX, packetY, 1, 0, Math.PI * 2);
-                            ctx.fill();
-                            ctx.shadowBlur = 0;
-                            
-                            ctx.restore();
+                            if (distance < 120) {
+                                const opacity = (120 - distance) / 120 * 0.3;
+                                const pulseSync = Math.sin(Date.now() * 0.001 + distance * 0.01);
+                                
+                                ctx.save();
+                                ctx.globalAlpha = opacity * (0.5 + pulseSync * 0.3);
+                                
+                                const gradient = ctx.createLinearGradient(node.x, node.y, otherNode.x, otherNode.y);
+                                gradient.addColorStop(0, '#30d158');
+                                gradient.addColorStop(0.5, '#0071e3');
+                                gradient.addColorStop(1, '#bf5af2');
+                                
+                                ctx.strokeStyle = gradient;
+                                ctx.lineWidth = 1;
+                                ctx.beginPath();
+                                ctx.moveTo(node.x, node.y);
+                                ctx.lineTo(otherNode.x, otherNode.y);
+                                ctx.stroke();
+                                
+                                const flowProgress = (Date.now() * 0.002 + distance * 0.05) % 1;
+                                const packetX = node.x + (otherNode.x - node.x) * flowProgress;
+                                const packetY = node.y + (otherNode.y - node.y) * flowProgress;
+                                
+                                ctx.fillStyle = '#ffffff';
+                                ctx.shadowBlur = 8;
+                                ctx.shadowColor = '#0071e3';
+                                ctx.beginPath();
+                                ctx.arc(packetX, packetY, 1, 0, Math.PI * 2);
+                                ctx.fill();
+                                ctx.shadowBlur = 0;
+                                
+                                ctx.restore();
+                            }
+                        });
+                    });
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                animate();
+                
+                divider.addEventListener('mousemove', (e) => {
+                    const rect = divider.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const mouseY = e.clientY - rect.top;
+                    
+                    nodes.forEach(node => {
+                        const distance = Math.sqrt(Math.pow(node.x - mouseX, 2) + Math.pow(node.y - mouseY, 2));
+                        
+                        if (distance < 80) {
+                            const attraction = (80 - distance) / 80;
+                            node.pulse += attraction * 0.1;
+                            node.baseRadius = 1.5 + attraction * 1;
+                        } else {
+                            node.baseRadius = Math.max(1.5, node.baseRadius - 0.05);
                         }
                     });
                 });
-                
-                requestAnimationFrame(animate);
             }
+
+            // --- SCRIPT EXECUTION ---
+
+            // Run performance checks first
+            optimizeHeroExperience();
             
-            animate();
-            
-            // Mouse interaction - nodes react to learning/interaction
-            let mouseX = 0, mouseY = 0;
-            
-            divider.addEventListener('mousemove', (e) => {
-                const rect = divider.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-                
-                // Nodes get excited when mouse approaches (representing engagement)
-                nodes.forEach(node => {
-                    const distance = Math.sqrt(
-                        Math.pow(node.x - mouseX, 2) + 
-                        Math.pow(node.y - mouseY, 2)
-                    );
-                    
-                    if (distance < 80) {
-                        const attraction = (80 - distance) / 80;
-                        node.pulse += attraction * 0.1;
-                        node.baseRadius = 1.5 + attraction * 1;
-                    } else {
-                        node.baseRadius = Math.max(1.5, node.baseRadius - 0.05);
+            // Then initialize UI components and listeners
+            initTutorBloomDivider();
+
+            // Setup mobile menu
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if(mobileMenu) {
+                mobileMenu.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking a link
+            document.querySelectorAll('nav ul a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('nav ul');
+                    const mobileMenuIcon = document.querySelector('.mobile-menu');
+                    menu.classList.remove('active');
+                    mobileMenuIcon.classList.remove('active');
+                });
+            });
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
                 });
             });
-        }
 
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initTutorBloomDivider);
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
 
-        // Accordion for FAQ
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                item.classList.toggle('open');
+            // Testimonials Carousel
+            const carouselWrapper = document.querySelector('.carousel-wrapper');
+            if (carouselWrapper) {
+                const testimonialCards = document.querySelectorAll('.testimonial-card');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                const cardWidth = 350 + 20; // card width + gap
+                let scrollPosition = 0;
+
+                const intersectionOptions = {
+                    root: carouselWrapper,
+                    rootMargin: '0px',
+                    threshold: 0.8
+                };
+                const observerCarousel = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        entry.target.classList.toggle('active', entry.isIntersecting);
+                    });
+                }, intersectionOptions);
+                testimonialCards.forEach(card => observerCarousel.observe(card));
+
+                prevBtn.addEventListener('click', () => {
+                    scrollPosition = Math.max(0, scrollPosition - cardWidth);
+                    carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.offsetWidth;
+                    scrollPosition = Math.min(maxScroll, scrollPosition + cardWidth);
+                    carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                });
+            }
+            
+            // Accordion for FAQ
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    item.classList.toggle('open');
+                });
             });
         });
     </script>
 </body>
 </html>
+
