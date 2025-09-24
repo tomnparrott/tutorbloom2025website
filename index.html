@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TutorBloom - Expert Tutoring from Pre-School to University</title>
+    <meta name="description" content="TutorBloom offers personalized online tutoring from pre-school to university. Book your free trial lesson in subjects like Math, English, and Science today!">
+    <meta name="keywords" content="tutoring, online tutoring, math tutoring, English tutoring, science tutoring, private tutor, academic help, exam preparation, GCSE, A-Level, university, UK">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End TrustBox script -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "TutorBloom",
+          "url": "https://www.tutorbloom.com",
+          "logo": "https://www.tutorbloom.com/tblogo.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+44-0123-456789",
+            "contactType": "customer service"
+          },
+          "sameAs": [
+            "https://www.facebook.com/tutorbloom",
+            "https://www.instagram.com/tutorbloom",
+            "https://www.linkedin.com/company/tutorbloom"
+          ]
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --glass: rgba(255, 255, 255, 0.25);
+            --glass-heavy: rgba(255, 255, 255, 0.7);
+            --glass-light: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --text-dark: #1d1d1f;
+            --text-light: #86868b;
+            --text-white: #f5f5f7;
+            --accent-blue: #0071e3;
+            --accent-purple: #bf5af2;
+            --accent-green: #30d158;
+            --accent-orange: #ff9500;
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --shadow-lg: 0 20px 80px rgba(31, 38, 135, 0.25);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: #4e66ff;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Dynamic Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #17457075;
+        }
+        
+        /* Floating Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(111, 66, 193, 0.4), transparent);
+            top: -200px;
+            left: -200px;
+        }
+
+        .orb2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.4), transparent);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -10s;
+        }
+
+        .orb3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.3), transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -100px) scale(1.1); }
+            50% { transform: translate(-50px, 50px) scale(0.9); }
+            75% { transform: translate(100px, 100px) scale(1.05); }
+        }
+
+        /* Glass Navigation */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 20px;
+            padding: 20px 40px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            background: var(--glass-light);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-cta {
+            background: var(--glass-heavy);
+            color: var(--text-dark) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-white);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh; 
+            display: flex;
+            align-items: center;
+            padding: 140px 20px 80px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 50, 200, 0.1); 
+            z-index: 1;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Enhanced video effects for better distortion through glass */
+            filter: blur(3px) saturate(150%) contrast(120%) brightness(105%);
+            transform: scale(1.1);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Glass Cards with iOS 26 style distortion */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(80px) saturate(200%) contrast(130%) brightness(110%);
+            -webkit-backdrop-filter: blur(80px) saturate(200%) contrast(130%) brightness(110%);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 
+                var(--shadow-lg),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Additional glass layer effect */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%, 
+                rgba(255, 255, 255, 0.08) 100%);
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Shimmer effect for glass */
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 60%);
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glass-card:hover::after {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+
+        /* Ensure content is above the glass effects */
+        .glass-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-white);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #7451a8, #a780e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--glass-heavy);
+            color: var(--text-dark);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary {
+            background: var(--glass-light);
+            color: var(--text-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Newsletter with enhanced glass */
+        .hero-newsletter {
+            background: var(--glass);
+            backdrop-filter: blur(60px) saturate(180%) contrast(120%) hue-rotate(5deg);
+            -webkit-backdrop-filter: blur(60px) saturate(180%) contrast(120%) hue-rotate(5deg);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .hero-newsletter input[type="email"] {
+            padding: 12px 20px; 
+            border-radius: 50px; 
+            border: 1px solid var(--glass-border); 
+            background: var(--glass-light); 
+            color: var(--text-white); 
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .hero-newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            padding: 80px 20px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 60px;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: var(--glass-heavy);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .subject-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .subject-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subject-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background: var(--glass-light);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            color: var(--text-white);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* CTA Banner Section */
+        .cta-banner {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-banner .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+            color: var(--text-white);
+        }
+        
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 20px;
+            max-width: 1240px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 50px 0;
+            margin: 0 auto;
+        }
+        
+        .carousel-wrapper {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 50px;
+            box-sizing: content-box;
+            gap: 20px;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .carousel-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .carousel-wrapper {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .testimonial-card {
+            flex-shrink: 0;
+            width: 350px;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            scroll-snap-align: center;
+            transform: scale(0.9);
+            box-shadow: none;
+        }
+        
+        .testimonial-card.active {
+            transform: scale(1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stars {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .testimonial-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .testimonial-nav button {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-nav button:hover {
+            background: var(--glass-heavy);
+            transform: scale(1.1);
+        }
+
+        .cta-reviews {
+            margin-top: 40px;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-reviews h3 {
+            font-size: 1.5rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+
+        .cta-reviews p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+        }
+
+        .cta-reviews .btn-primary {
+            text-decoration: none;
+        }
+        
+        .faq-section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        .accordion-container {
+            margin-top: 40px;
+        }
+        
+        .accordion-item {
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            color: var(--text-white);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--glass-heavy);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            padding: 0 20px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            color: var(--text-white);
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .accordion-item.open .accordion-content {
+            max-height: 200px; /* Adjust as needed */
+            padding: 20px;
+        }
+
+        .accordion-item.open .accordion-header .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease-out;
+        }
+
+
+        /* Quick Links Section */
+        .quick-links-section {
+            padding: 80px 20px;
+            background: var(--glass-light);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .quick-links-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quick-links-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .quick-links-grid a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            transition: all 0.3s ease;
+            min-width: 0;
+            aspect-ratio: 1 / 1;
+            min-height: 0;
+            height: 100%;
+        }
+
+        .quick-links-grid a:hover {
+            transform: translateY(-5px);
+            background: var(--glass-heavy);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quick-links-grid a .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .quick-links-grid {
+            grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .quick-links-grid {
+            grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background: var(--glass-light);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 60px 20px 30px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--text-white);
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: var(--text-white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                width: calc(100% - 20px);
+                top: 10px;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-200%);
+                width: calc(100% - 40px);
+                max-width: 400px;
+                background: var(--glass-heavy);
+                backdrop-filter: blur(40px);
+                -webkit-backdrop-filter: blur(40px);
+                border-radius: 20px;
+                padding: 30px;
+                flex-direction: column;
+                gap: 20px;
+                border: 1px solid var(--glass-border);
+                box-shadow: var(--shadow-lg);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            nav ul.active {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            nav ul a {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                color: var(--text-dark);
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero {
+                min-height: 85vh; 
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .contact-buttons .btn {
+                width: 100%;
+            }
+            
+            /* Hide video on mobile */
+            .hero-video-bg {
+                display: none;
+            }
+
+            .hero::before {
+                background: linear-gradient(125deg, #7451a8 0%, #a780e8 50%, #6878e8 100%);
+            }
+        }
+
+        /* TutorBloom Themed Divider */
+        .tutorbloom-divider {
+            position: relative;
+            height: 180px;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Lotus Flower Animation */
+        .lotus-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        .lotus-bloom {
+            width: 120px;
+            height: 60px;
+            filter: drop-shadow(0 0 15px rgba(191, 90, 242, 0.4));
+        }
+
+        .petal {
+            fill: rgba(191, 90, 242, 0.6);
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 0.5;
+            transform-origin: 100px 80px;
+            animation: lotus-bloom 4s ease-in-out infinite;
+        }
+
+        .petal-1 { animation-delay: 0s; }
+        .petal-2 { animation-delay: 0.2s; }
+        .petal-3 { animation-delay: 0.4s; }
+        .petal-4 { animation-delay: 0.6s; }
+        .petal-5 { animation-delay: 0.8s; }
+
+        @keyframes lotus-bloom {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 0.6; 
+            }
+            50% { 
+                transform: scale(1.1) rotate(2deg); 
+                opacity: 0.9; 
+            }
+        }
+
+        .lotus-center {
+            fill: rgba(255, 255, 255, 0.8);
+            animation: center-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes center-glow {
+            0%, 100% { 
+                fill: rgba(255, 255, 255, 0.8); 
+                r: 8; 
+            }
+            50% { 
+                fill: rgba(191, 90, 242, 1); 
+                r: 10; 
+            }
+        }
+
+        /* STEM Equations */
+        .stem-equations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .equation {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'SF Pro Display', monospace;
+            font-size: 14px;
+            font-weight: 300;
+            animation: equation-drift 12s linear infinite;
+            opacity: 0;
+        }
+
+        .eq-1 {
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .eq-2 {
+            right: 15%;
+            top: 30%;
+            animation-delay: -3s;
+        }
+
+        .eq-3 {
+            left: 20%;
+            bottom: 25%;
+            animation-delay: -6s;
+        }
+
+        .eq-4 {
+            right: 10%;
+            bottom: 20%;
+            animation-delay: -9s;
+            font-size: 12px;
+        }
+
+        .eq-5 {
+            left: 50%;
+            top: 15%;
+            animation-delay: -1.5s;
+            transform: translateX(-50%);
+            color: rgba(0, 113, 227, 0.5);
+            font-weight: 500;
+        }
+
+        @keyframes equation-drift {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(0px) scale(1);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.8);
+            }
+        }
+
+        /* Mindfulness Waves (Mental Health) */
+        .mindfulness-waves {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            z-index: 2;
+        }
+
+        .wave-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(48, 209, 88, 0.3) 25%, 
+                rgba(48, 209, 88, 0.6) 50%, 
+                rgba(48, 209, 88, 0.3) 75%, 
+                transparent 100%);
+            border-radius: 1px;
+        }
+
+        .wave-1 {
+            bottom: 15px;
+            animation: calm-wave 6s ease-in-out infinite;
+        }
+
+        .wave-2 {
+            bottom: 10px;
+            animation: calm-wave 8s ease-in-out infinite;
+            animation-delay: -2s;
+            opacity: 0.7;
+        }
+
+        .wave-3 {
+            bottom: 5px;
+            animation: calm-wave 10s ease-in-out infinite;
+            animation-delay: -4s;
+            opacity: 0.5;
+        }
+
+        @keyframes calm-wave {
+            0%, 100% {
+                transform: scaleX(0.8) translateX(-10%);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scaleX(1.2) translateX(10%);
+                opacity: 0.8;
+            }
+        }
+
+        /* Mouse interaction effects */
+        .tutorbloom-divider:hover .petal {
+            animation-duration: 2s;
+        }
+
+        .tutorbloom-divider:hover .equation {
+            animation-duration: 6s;
+        }
+
+        .tutorbloom-divider:hover .wave-line {
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(48, 209, 88, 0.5) 25%, 
+                rgba(48, 209, 88, 0.9) 50%, 
+                rgba(48, 209, 88, 0.5) 75%, 
+                transparent 100%);
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Glass Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="tblogo.png" alt="TutorBloom logo" style="height:70px; vertical-align:middle;">
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="https://tutorbloom.com/bloomblog/">Blog</a></li>
+                <li><a href="https://tutorbloom.mailchimpsites.com" class="nav-cta">Book Free Trial</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Video as Hero Background -->
+        <div class="hero-video-bg">
+            <video autoplay loop muted playsinline>
+                <source src="tutoring3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <!-- Blue overlay on top of the video -->
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-text glass-card fade-in">
+                <h1>Where Academic Success <span>Blossoms</span></h1>
+                <p>Unlock your full potential with TutorBloom. We offer one-to-one or group tutoring online, tailored to your unique learning style and pace.</p>
+                <div class="cta-buttons">
+                    <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">
+                        Book Trial Lesson →
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        Discover More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-newsletter glass-card fade-in">
+                <!-- maybe add a cdnralised logo here? also, text colour needs changing here too -->
+                <h2 style="font-size: 1.8rem; margin-bottom: 20px; text-align: center;">Get TutorBloom Updates</h2>
+                <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 25px; text-align: center;">Join our mailing list for the latest learning tips, new subject announcements, and exclusive offers!</p>
+                <!-- Placeholder for hubspot form -->
+                <form action="#" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="email" name="email" placeholder="Enter your email address" required style="padding: 12px 20px; border-radius: 50px; border: 1px solid var(--glass-border); background: var(--glass-light); color: var(--text-white); font-size: 1rem;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TutorBloom Themed Section Divider -->
+    <div class="tutorbloom-divider" id="tutorbloomDivider">
+        <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+        <div class="lotus-container">
+            <svg class="lotus-bloom" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
+                <g class="lotus-petals">
+                    <path class="petal petal-1" d="M100,80 Q70,40 100,20 Q130,40 100,80 Z" />
+                    <path class="petal petal-2" d="M100,80 Q60,50 85,25 Q115,45 100,80 Z" />
+                    <path class="petal petal-3" d="M100,80 Q140,50 115,25 Q85,45 100,80 Z" />
+                    <path class="petal petal-4" d="M100,80 Q75,45 95,30 Q115,50 100,80 Z" />
+                    <path class="petal petal-5" d="M100,80 Q125,45 105,30 Q85,50 100,80 Z" />
+                </g>
+                <circle class="lotus-center" cx="100" cy="75" r="8" />
+            </svg>
+        </div>
+        <div class="stem-equations">
+            <div class="equation eq-1">f(x) = ax² + bx + c</div>
+            <div class="equation eq-2">E = mc²</div>
+            <div class="equation eq-3">∫ f(x)dx</div>
+            <div class="equation eq-4">DNA → RNA → Protein</div>
+            <div class="equation eq-5">AI i∩ Education = Growth</div>
+        </div>
+        <div class="mindfulness-waves">
+            <div class="wave-line wave-1"></div>
+            <div class="wave-line wave-2"></div>
+            <div class="wave-line wave-3"></div>
+        </div>
+    </div>
+
+    <!-- Subjects Section -->
+     <!-- This sectin needs narrowing as it should be uniform to header and hero, currently wider, looks a bit odd -->
+    <section class="subjects-section" id="subjects">
+        <h2 class="section-title fade-in">Some Subjects We Teach</h2>
+        <p class="section-subtitle fade-in">From KS3 to University Level - We offer tutoring across a wide range of subjects, these are just a selection.</p>
+        <div class="subjects-grid fade-in">
+            <div class="subject-card">
+                <div class="subject-icon">📐</div>
+                <h3>Mathematics</h3>
+                <p>From basic arithmetic to advanced calculus. GCSE, A-Level, IB & Degree level support.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">📚</div>
+                <h3>English</h3>
+                <p>Literature & Language mastery. Essay writing, comprehension, and critical analysis.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🔬</div>
+                <h3>Sciences</h3>
+                <p>Physics, Chemistry, Biology. Practical understanding and exam technique.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>Programming, algorithms, and computational thinking for the digital age.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">📊</div>
+                <h3>Economics</h3>
+                <p>Micro and macroeconomics, market dynamics, and financial literacy.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🧠</div>
+                <h3>Psychology</h3>
+                <p>Understanding human behavior, cognitive processes, and research methods.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🌍</div>
+                <h3>Geography</h3>
+                <p>Physical and human geography, environmental studies, and global issues.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">📜</div>
+                <h3>History</h3>
+                <p>Critical analysis of historical events, source evaluation, and essay skills.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🇫🇷</div>
+                <h3>French</h3>
+                <p>Fluency, grammar, and cultural understanding for all levels.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🇪🇸</div>
+                <h3>Spanish</h3>
+                <p>Grammar, vocabulary, and conversational skills for all levels.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">💼</div>
+                <h3>Business Studies</h3>
+                <p>A deep dive into the corporate world, from entrepreneurship to marketing.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon"><i class="fa-solid fa-question-circle"></i></div>
+                <h3>More Subjects?</h3>
+                <p>Don't see your subject here? Contact us to see if we have a tutor for you! We will always try our hardest to find the best tutor for you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h2>Innovative Learning, Exceptional Results</h2>
+                <p>At TutorBloom, we believe in nurturing the seeds of knowledge and helping them flourish. Our diverse team ranges from current university students to experienced teachers with with decades of experience, all passionate about empowering learners.</p>
+                <p>Not only are we committed to academic excellence, but we also prioritise the well-being and personal growth of our students. We understand that each learner is unique, and we tailor our approach to meet their individual needs.</p>
+                <p>We also understand how stressful the learning process can be, and we are here to support our students every step of the way.</p>
+                <ul class="feature-list">
+                    <li>Dynamic whiteboard technology for interactive learning</li>
+                    <li>Flexible scheduling with online and in-person options</li>
+                    <li>Regular progress reports and parent updates</li>
+                    <li>Exam preparation specialists for all major boards</li>
+                    <li>Safe, secure, and easy payment options including Klarna</li>
+                    <li>Comprehensive support for students with special educational needs</li>
+                    <li>Focus on building confidence and fostering a love for learning</li>
+                </ul>
+            </div>
+            <div class="glass-card fade-in">
+                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--text-white);">Why Choose TutorBloom?</h3>
+                <div style="color: rgba(255, 255, 255, 0.9); line-height: 1.8;">
+                    <p style="margin-bottom: 20px;">✨ Focus on academic improvement and confidence building</p>
+                    <p style="margin-bottom: 20px;">💡 Innovative teaching methods that foster enjoyment of the subject</p>
+                    <p style="margin-bottom: 20px;">🎯 Targeted strategies for mental health and well-being</p>
+                    <p style="margin-bottom: 20px;">💸 Flexible and secure payment options, including Klarna</p>
+                    <p>🌟 A supportive environment that helps students thrive</p>
+                    <p>🤝 Dedicated tutors who are invested in student success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section class="cta-banner">
+        <div class="cta-content fade-in">
+            <h2>Ready to See the Difference?</h2>
+            <p>Book your trial lesson today and discover how we can help you thrive.</p>
+            <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">Book Your Trial Now →</a>
+        </div>
+    </section>
+
+        <!-- Quick Links Section -->
+    <!-- This needs to be centred better  -->
+    <section class="quick-links-section" id="contact">
+        <div class="quick-links-content fade-in">
+            <div class="about-text fade-in">
+                <h2>Get Started Now</h2>
+                <p>If you want to study with TutorBloom, or if you would like to tutor with us, please get in touch and fill in the forms on the links below. Once you have filled this in, a member of our team will be in touch.</p>
+                <p>There is also a link to our most up to date terms and conditions. These are updated reguarly and it is worth checking back often as these terms are there to protect you, our tutors and us to ensure that we provide a safe and secure learning environment.</p>
+                <p>Additionally, if you are looking to develop your portfolio as a content creator, social media manager or journalist, we are always open to applicants for freelance positions and would love it if you got in touch with us.</p>
+            </div>
+            <div class="quick-links-grid">
+                <a href="terms_and_conditions.html">
+                    <div class="icon">📜</div>
+                    <span>Terms & Conditions</span>
+                </a>
+                <a href="new_tutor_form.html">
+                    <div class="icon">🧑‍🏫</div>
+                    <span>Become a Tutor</span>
+                </a>
+                <a href="new_student_form.html">
+                    <div class="icon">🎓</div>
+                    <span>Become a Student</span>
+                </a>
+                <a href="#" class="apply-content-creator">
+                    <div class="icon">✏️</div>
+                    <span>Become a Creator</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title fade-in">What Parents & Students Say</h2>
+        <p class="section-subtitle fade-in">We think we're pretty great, but don't just take our word for it! This is just a handful of reviews we've had emailed to us over the years. You can also see some of our TrustPilot reviews on the link below.</p>
+        <p class="section-subtitle fade-in">If you are an existing or past student, we would love to hear your feedback!</p>
+        <!-- TrustBox widget - Review Collector -->
+        <div class="trustpilot-widget fade-in" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6537ea3418e86bb459a4b4d8" data-style-height="52px" data-style-width="100%">
+            <a href="https://uk.trustpilot.com/review/tutorbloom.com" target="_blank" rel="noopener">Trustpilot</a>
+        </div>
+        <!-- End TrustBox widget -->
+        <div class="carousel-container fade-in">
+            <div class="carousel-wrapper">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Frances was a great tutor to my son. He really enjoyed the maths classes with Frances. I would highly recommend her."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Frances was awesome! (From [student])"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Very patient. Really engaging. [Student] is really enjoying her lessons with Frances."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Frances is very knowledgeable and is always prepared with great lessons that have helped me improve my grades."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Great engagement and steady building on progress made. Another great lesson. Thank you!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"[Student]'s confidence with maths has grown immensely and its really beginning to show. Thank you!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The time and effort Frances has put into helping [student] catch up on her maths to the point that [student] is now so much more confident with maths shows just how great Frances is. Absolute God send!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Great to have [student] back learning with Frances after a short break. The progress is clear to see. Thanks again!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"This young woman is excellent!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Another great lesson for [student] from Frances. The advancements made in [students]'s maths since starting with Frances are really starting to show now. Thank you!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Really useful report at the end of the lesson this week. Many thanks!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Great lesson from Frances today. Can see the progress [student] has made since starting lessons with Frances. Very much appreciated."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Another great session. Seems like you've got [student] more and more focused and engaged each time! Thank you!"</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"SHE WAS GREAT."</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-nav">
+            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Call to action for reviews -->
+        <div class="cta-reviews fade-in">
+            <h3>Ready to share your own success story?</h3>
+            <p>Your feedback helps us grow. Leave a review on our Trustpilot page!</p>
+            <a href="https://uk.trustpilot.com/review/tutorbloom.com" target="_blank" class="btn btn-primary">
+                Leave a Review
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2>Start Your Learning Journey Today</h2>
+            <p>Join hundreds of successful students who have transformed their academic performance with TutorBloom. Your first trial lesson is completely free.</p>
+            <div class="contact-buttons">
+                <a href="https://tutorbloom.mailchimpsites.com" class="btn btn-primary">Book Trial Lesson</a>
+                <a href="signup.html" class="btn btn-secondary">Enquire Now</a>
+                <a href="https://tutorbloom.com/bloomblog/" class="btn btn-secondary">Visit Our Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+        <div class="accordion-container fade-in">
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    The subject I want isn't listed. Can you still help?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>We offer a huge range of subjects and we try and find tutors from all backgrounds to help with your specific needs. If you have a particular subject in mind, please get in touch and we'll do our best to assist you. We can even help with non-traditional subjects if you're looking for something specific.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How are your lessons conducted?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Our lessons are conducted online, and all sessions are recorded for safeguarding purposes. We use a dynamic whiteboard technology that allows for interactive learning, making it easy to share resources and collaborate in real-time.</p>
+                    <p>Eventually, we plan to implement a system that allows students to access their lesson recordings and resources through a dedicated portal. This is still currently under development.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    What payment options are available?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>We offer flexible and secure payment options, including easy-to-use payment structures via Stripe and Klarna.</p>
+                    <p>Additionally, we provide options for installment payments to make our services more accessible.</p>
+                    <p>Some of our tutors will also offer a discounted price for block bookings or ten or more lessons, though this is down to their discretion</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How do I get a free trial lesson?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Some of our tutors will offer you a free trial lesson upon request. This is a great way to see if their teaching style aligns with your learning needs.</p>
+                    <p>We encourage all of our tutors to offer their first lesson for free, but this is their decision and we cannot enforce this upon them, as their time is valuable</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    What if my child needs more than just academic support?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>We focus on more than just grades. Our tutors are dedicated to building academic confidence, fostering a genuine enjoyment of the subject, and supporting your child's mental well-being.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How do I become a tutor with TutorBloom?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>If you're passionate about teaching and want to make a difference in students' lives, we'd love to hear from you! Please fill out our tutor application form, and a member of our team will get in touch to arrange an interview, which will include a discussion about your teaching philosophy and approach, as well as a demonstration of your teaching skills.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Do you offer group tutoring sessions?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, we offer both one-to-one and group tutoring sessions. Group sessions can be a more affordable option and also provide opportunities for collaborative learning among peers.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    What are the freelance content creator opportunities?
+                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>We are always looking for talented freelance content creators to join our team. Opportunities include managing social media posts, writing blog posts, and creating educational materials. This is a great way to gain experience and build your portfolio while working with a supportive team. This is also a role where you can earn commission, based on your contributions, not only boosting your income but also enhancing your professional growth.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About TutorBloom</h3>
+                <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.8;">We provide personalised education from pre-school to university level, with expert tutors and innovative learning tools to help every student achieve their potential.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#subjects">Our Subjects</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://tutorbloom.com/bloomblog/">Blog</a></li>
+                    <li><a href="https://tutorbloom.com/classroom/">Classroom</a></li>
+                    <li><a href="https://tutorbloom.mailchimpsites.com">Book Session</a></li>
+                    <li><a href="#contact">Become a Tutor</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TutorBloom. All rights reserved. | Where Academic Success Blossoms</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.querySelector('nav ul');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                menu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced parallax effect on scroll with video distortion
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.orb');
+            
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + (index * 0.2);
+                orb.style.transform = `translateY(${scrolled * speed * 0.5}px)`;
+            });
+
+            // Add scroll-based video distortion effect for iOS 26 style
+            const video = document.querySelector('.hero-video-bg video');
+            if (video && scrolled < window.innerHeight) {
+                const distortionIntensity = Math.sin(scrolled * 0.005) * 2;
+                const blurAmount = 3 + Math.abs(distortionIntensity);
+                const saturation = 150 + distortionIntensity * 10;
+                const hueRotation = distortionIntensity * 3;
+                
+                video.style.filter = `blur(${blurAmount}px) saturate(${saturation}%) contrast(120%) brightness(105%) hue-rotate(${hueRotation}deg)`;
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        // Testimonials Carousel
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        const cardWidth = 350 + 20; // card width + gap
+        let scrollPosition = 0;
+
+        // Intersection Observer to set the 'active' class on the centered card
+        const intersectionOptions = {
+            root: carouselWrapper,
+            rootMargin: '0px',
+            threshold: 0.8 // A card is 'active' when 80% of it is visible
+        };
+
+        const observerCarousel = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, intersectionOptions);
+
+        testimonialCards.forEach(card => {
+            observerCarousel.observe(card);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            scrollPosition -= cardWidth;
+            if (scrollPosition < 0) {
+                scrollPosition = 0;
+            }
+            carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            scrollPosition += cardWidth;
+            const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.offsetWidth;
+            if (scrollPosition > maxScroll) {
+                scrollPosition = maxScroll;
+            }
+            carouselWrapper.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        });
+        
+        // TutorBloom Neural Network and Lotus Divider
+        function initTutorBloomDivider() {
+            const canvas = document.getElementById('neuralCanvas');
+            const ctx = canvas.getContext('2d');
+            const divider = document.getElementById('tutorbloomDivider');
+            
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            // Neural network nodes (representing AI/learning connections)
+            const nodes = [];
+            const nodeCount = 25;
+            const connections = [];
+            
+            class Node {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.3;
+                    this.vy = (Math.random() - 0.5) * 0.3;
+                    this.pulse = Math.random() * Math.PI * 2;
+                    this.baseRadius = 1.5;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.pulse += 0.02;
+                    
+                    // Keep nodes within bounds
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    
+                    this.x = Math.max(0, Math.min(canvas.width, this.x));
+                    this.y = Math.max(0, Math.min(canvas.height, this.y));
+                }
+                
+                draw() {
+                    const radius = this.baseRadius + Math.sin(this.pulse) * 0.5;
+                    const opacity = 0.4 + Math.sin(this.pulse) * 0.2;
+                    
+                    ctx.save();
+                    ctx.globalAlpha = opacity;
+                    
+                    // Gradient for neural nodes
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, radius * 3);
+                    gradient.addColorStop(0, '#0071e3');
+                    gradient.addColorStop(0.5, '#bf5af2');
+                    gradient.addColorStop(1, 'transparent');
+                    
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, radius * 3, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Core node
+                    ctx.fillStyle = '#ffffff';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.restore();
+                }
+            }
+            
+            // Initialize neural nodes
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push(new Node());
+            }
+            
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Update and draw nodes
+                nodes.forEach(node => {
+                    node.update();
+                    node.draw();
+                });
+                
+                // Draw neural connections (knowledge transfer)
+                nodes.forEach((node, i) => {
+                    nodes.slice(i + 1).forEach(otherNode => {
+                        const distance = Math.sqrt(
+                            Math.pow(node.x - otherNode.x, 2) + 
+                            Math.pow(node.y - otherNode.y, 2)
+                        );
+                        
+                        if (distance < 120) {
+                            const opacity = (120 - distance) / 120 * 0.3;
+                            const pulseSync = Math.sin(Date.now() * 0.001 + distance * 0.01);
+                            
+                            ctx.save();
+                            ctx.globalAlpha = opacity * (0.5 + pulseSync * 0.3);
+                            
+                            // Data flow gradient
+                            const gradient = ctx.createLinearGradient(node.x, node.y, otherNode.x, otherNode.y);
+                            gradient.addColorStop(0, '#30d158');
+                            gradient.addColorStop(0.5, '#0071e3');
+                            gradient.addColorStop(1, '#bf5af2');
+                            
+                            ctx.strokeStyle = gradient;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(otherNode.x, otherNode.y);
+                            ctx.stroke();
+                            
+                            // Data packets flowing along connections
+                            const flowProgress = (Date.now() * 0.002 + distance * 0.05) % 1;
+                            const packetX = node.x + (otherNode.x - node.x) * flowProgress;
+                            const packetY = node.y + (otherNode.y - node.y) * flowProgress;
+                            
+                            ctx.fillStyle = '#ffffff';
+                            ctx.shadowBlur = 8;
+                            ctx.shadowColor = '#0071e3';
+                            ctx.beginPath();
+                            ctx.arc(packetX, packetY, 1, 0, Math.PI * 2);
+                            ctx.fill();
+                            ctx.shadowBlur = 0;
+                            
+                            ctx.restore();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            // Mouse interaction - nodes react to learning/interaction
+            let mouseX = 0, mouseY = 0;
+            
+            divider.addEventListener('mousemove', (e) => {
+                const rect = divider.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+                
+                // Nodes get excited when mouse approaches (representing engagement)
+                nodes.forEach(node => {
+                    const distance = Math.sqrt(
+                        Math.pow(node.x - mouseX, 2) + 
+                        Math.pow(node.y - mouseY, 2)
+                    );
+                    
+                    if (distance < 80) {
+                        const attraction = (80 - distance) / 80;
+                        node.pulse += attraction * 0.1;
+                        node.baseRadius = 1.5 + attraction * 1;
+                    } else {
+                        node.baseRadius = Math.max(1.5, node.baseRadius - 0.05);
+                    }
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initTutorBloomDivider);
+
+        // Accordion for FAQ
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
